@@ -7,8 +7,16 @@
     "build": "tsc -p ./tsconfig.json && tsc -p ./tsconfig.esm.json"
   },
   "exports": {
-    "import": "./dist/esm/postcss-color-contrast.js",
-    "require": "./dist/cjs/postcss-color-contrast.js"
+    "import": {
+      "default": "./dist/esm/postcss-color-contrast.js",
+      "types": "./dist/esm/postcss-color-contrast.d.ts",
+      "*": "./dist/esm/*"
+    },
+    "require": {
+      "default": "./dist/cjs/postcss-color-contrast.js",
+      "types": "./dist/cjs/postcss-color-contrast.d.ts",
+      "*": "./dist/cjs/*"
+    }
   },
   "types": "./dist/esm/postcss-color-contrast.d.ts",
   "dependencies": {
