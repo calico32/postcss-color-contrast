@@ -8,7 +8,9 @@ import type { Declaration as DeclarationFull, PluginCreator as PluginCreatorFull
 import { DeclarationStub, PluginCreatorStub } from './postcss'
 
 type Declaration = any extends DeclarationFull ? DeclarationStub : DeclarationFull
-type PluginCreator<T> = any extends PluginCreatorFull ? PluginCreatorStub<T> : PluginCreatorFull<T>
+type PluginCreator<T> = any extends PluginCreatorFull<T>
+  ? PluginCreatorStub<T>
+  : PluginCreatorFull<T>
 
 /*
 color-contrast() = color-contrast( <color> vs <color>#{2,}  [ to [<number> | AA | AA-large | AAA | AAA-large]]? )
