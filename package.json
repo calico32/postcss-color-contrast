@@ -1,24 +1,28 @@
 {
   "name": "postcss-color-contrast",
   "packageManager": "yarn@3.2.2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
-    "clean": "rm -r ./dist",
-    "build": "tsc -p ./tsconfig.json && tsc -p ./tsconfig.esm.json"
+    "tsc": "tsc --esModuleInterop --moduleResolution node --lib esnext --sourceMap --declaration --strict",
+    "clean": "rm -r ./dist || :",
+    "cjs": "npm run tsc -- --target es6 --module commonjs --outDir dist/cjs src/cjs.ts nominal.d.ts",
+    "esm": "npm run tsc -- --target es2020 --module es2020 --outDir dist/esm src/esm.ts nominal.d.ts",
+    "build": "npm run clean && npm run cjs && npm run esm"
   },
+  "main": "./dist/cjs/cjs.js",
   "exports": {
     "import": {
-      "default": "./dist/esm/postcss-color-contrast.js",
-      "types": "./dist/esm/postcss-color-contrast.d.ts",
+      "default": "./dist/esm/esm.js",
+      "types": "./dist/esm/esm.d.ts",
       "*": "./dist/esm/*"
     },
     "require": {
-      "default": "./dist/cjs/postcss-color-contrast.js",
-      "types": "./dist/cjs/postcss-color-contrast.d.ts",
+      "default": "./dist/cjs/cjs.js",
+      "types": "./dist/cjs/cjs.d.ts",
       "*": "./dist/cjs/*"
     }
   },
-  "types": "./dist/esm/postcss-color-contrast.d.ts",
+  "types": "./dist/esm/esm.d.ts",
   "dependencies": {
     "postcss-value-parser": "^4.2.0"
   },

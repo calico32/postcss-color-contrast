@@ -1,4 +1,5 @@
 {
+  // not for compilation - only for editor
   "compilerOptions": {
     "outDir": "dist/cjs",
     "target": "es6",
