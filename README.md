@@ -12,7 +12,7 @@ No guarantees are made about the spec-compliance of this plugin, but I tried my 
 
 ```css
 selector {
-  color: color-contrast(<color> vs <color>[, <color>, ...] [to <number> | AA | AA-large | AAA | AAA-large]);
+  color: color-contrast(<color> vs <color>, <color>[, ...] [to <number> | AA | AA-large | AAA | AAA-large]);
 }
 ```
 
@@ -20,11 +20,11 @@ I'll call the first color the "background", the list of colors the "foreground" 
 
 ### Semantics
 
-**No target ratio: `color-contrast(<color> vs <color>[, <color>, ...])`**
+**No target ratio: `color-contrast(<color> vs <color>, <color>[, ...])`**
 
 - The foreground color that has the highest contrast ratio with the background color is used.
 
-**Target ratio: `color-contrast(<color> vs <color>[, <color>, ...] to <number> | AA | AA-large | AAA | AAA-large)`**
+**Target ratio: `color-contrast(<color> vs <color>, <color>[, ...] to <number> | AA | AA-large | AAA | AAA-large)`**
 
 - The first foreground color in the list that has a contrast ratio greater than or equal to the target ratio is used.
 - AA-large is the same as `3`.
