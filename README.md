@@ -2,12 +2,44 @@
 
 This very WIP PostCSS plugin implements a polyfill for the `color-contrast()` function, part of the extremely new [CSS Color Module Level 6](https://drafts.csswg.org/css-color-6) spec.
 
-This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does not support `var()` or `calc()` expressions, and therefore must be placed near the end of the PostCSS chain.
+Because the color is computed at compile-time, this plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does not support `var()` or `calc()` expressions, `currentColor`, etc., and therefore must be placed near the end of the PostCSS chain.
+
+No guarantees are made about the spec-compliance of this plugin, but I tried my best.
+
+## TL;DR Spec behavior
+
+### Syntax
+
+```css
+selector {
+  color: color-contrast(<color> vs <color>[, <color>, ...] [to <number> | AA | AA-large | AAA | AAA-large]);
+}
+```
+
+I'll call the first color the "background", the list of colors the "foreground" colors, and the number/keyword the "target ratio".
+
+### Semantics
+
+**No target ratio: `color-contrast(<color> vs <color>[, <color>, ...])`**
+
+- The foreground color that has the highest contrast ratio with the background color is used.
+
+**Target ratio: `color-contrast(<color> vs <color>[, <color>, ...] to <number> | AA | AA-large | AAA | AAA-large)`**
+
+- The first foreground color in the list that has a contrast ratio greater than or equal to the target ratio is used.
+- AA-large is the same as `3`.
+- AA is the same as `4.5`.
+- AAA-large is the same as `4.5`.
+- AAA is the same as `7`.
+
+
 
 ## Examples
 
+*Arguments to `color-contrast()` wrapped onto multiple lines for clarity.*
+
 <table>
-<tr><th>Input</th><th>Output</th><th>img</th></tr>
+<tr><th>Input</th><th>Output</th><th>Image</th></tr>
 <tr>
 <td>
 
@@ -70,9 +102,9 @@ This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does n
   background-color: #6ee7b7;
   /*
     with a target contrast:
-    "pick the first color
-    that meets the target 
-    contrast ratio"
+    picks the first color
+    that meets or exceeds 
+    the target contrast ratio
   */
   color: #065f46; /* 5.41:1 */
 }
