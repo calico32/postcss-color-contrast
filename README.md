@@ -37,9 +37,9 @@ I'll call the first color the "background", the list of colors the "foreground" 
 Not on npm yet.
 
 ```sh
-npm install --save-dev postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.0
+npm install --save-dev postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.1
 
-yarn add -D postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.0
+yarn add -D postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.1
 ```
 
 In your `postcss.config.js` file:
