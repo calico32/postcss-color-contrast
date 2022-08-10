@@ -7,7 +7,7 @@ This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does n
 ## Examples
 
 <table>
-<tr><th>Input</th><th>Output</th><th>Image</th></tr>
+<tr><th>Input</th><th>Output</th><th>img</th></tr>
 <tr>
 <td>
 
@@ -40,7 +40,7 @@ This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does n
 </td>
 <td>
 
-![](./image/black.png)
+![](./img/black.png)
 
 </td>
 </tr>
@@ -81,7 +81,7 @@ This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does n
 </td>
 <td>
 
-![](./image/green.png)
+![](./img/green.png)
 
 </td>
 </tr>
@@ -119,7 +119,7 @@ This plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does n
 
 <td>
 
-![](./image/orange.png)
+![](./img/orange.png)
 
 </td>
 </tr>
