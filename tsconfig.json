@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/cjs",
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "incremental": true
+  }
+}
