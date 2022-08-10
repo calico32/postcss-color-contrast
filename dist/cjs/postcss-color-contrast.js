@@ -33,8 +33,8 @@ const expectColor = (node) => {
     if (!node)
         return [0, 0, 0];
     if (node.type === 'word') {
-        // possibly hex
-        if (!node.value.startsWith('#')) {
+        // possibly hex or named color
+        if (!node.value.startsWith('#') && !(node.value in css_color_1.cssColorNames)) {
             throw new ParseFail('expected color, got word');
         }
     }

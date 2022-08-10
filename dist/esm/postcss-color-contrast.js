@@ -1,6 +1,6 @@
 import valueParser from 'postcss-value-parser';
 import { AA, AAA, AAA_LARGE, AA_LARGE, colorContrast } from './contrast';
-import { parseCssColor } from './css-color';
+import { cssColorNames, parseCssColor } from './css-color';
 /*
 color-contrast() = color-contrast( <color> vs <color>#{2,}  [ to [<number> | AA | AA-large | AAA | AAA-large]]? )
 CSS Color Module Level 6: https://drafts.csswg.org/css-color-6/
@@ -28,8 +28,8 @@ const expectColor = (node) => {
     if (!node)
         return [0, 0, 0];
     if (node.type === 'word') {
-        // possibly hex
-        if (!node.value.startsWith('#')) {
+        // possibly hex or named color
+        if (!node.value.startsWith('#') && !(node.value in cssColorNames)) {
             throw new ParseFail('expected color, got word');
         }
     }

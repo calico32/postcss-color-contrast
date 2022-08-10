@@ -5,4 +5,5 @@
 */
 import { Node } from 'postcss-value-parser';
 import { SRGBA } from './color';
+export declare const cssColorNames: Record<string, SRGBA>;
 export declare const parseCssColor: (input: Node) => SRGBA | null;

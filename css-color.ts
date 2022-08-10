@@ -7,7 +7,7 @@ import { FunctionNode, Node } from 'postcss-value-parser'
 import { SRGBA } from './color'
 
 // http://www.w3.org/TR/css3-color/
-const cssColorNames: Record<string, SRGBA> = {
+export const cssColorNames: Record<string, SRGBA> = {
   transparent: <SRGBA>[0, 0, 0, 0],
   aliceblue: <SRGBA>[240, 248, 255, 1],
   antiquewhite: <SRGBA>[250, 235, 215, 1],

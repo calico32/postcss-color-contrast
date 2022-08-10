@@ -1,7 +1,7 @@
 import valueParser, { DivNode, Node, SpaceNode } from 'postcss-value-parser'
 import { SRGB } from './color'
 import { AA, AAA, AAA_LARGE, AA_LARGE, colorContrast, ContrastRatio } from './contrast'
-import { parseCssColor } from './css-color'
+import { cssColorNames, parseCssColor } from './css-color'
 
 // @ts-ignore - peer dependency missing types
 import type { Declaration as DeclarationFull, PluginCreator as PluginCreatorFull } from 'postcss'
@@ -42,8 +42,8 @@ const expectColor = (node: Node | undefined): SRGB => {
   if (!node) return <SRGB>[0, 0, 0]
 
   if (node.type === 'word') {
-    // possibly hex
-    if (!node.value.startsWith('#')) {
+    // possibly hex or named color
+    if (!node.value.startsWith('#') && !(node.value in cssColorNames)) {
       throw new ParseFail('expected color, got word')
     }
   } else if (node.type === 'function') {

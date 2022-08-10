@@ -1,5 +1,5 @@
 // http://www.w3.org/TR/css3-color/
-const cssColorNames = {
+export const cssColorNames = {
     transparent: [0, 0, 0, 0],
     aliceblue: [240, 248, 255, 1],
     antiquewhite: [250, 235, 215, 1],

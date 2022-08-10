@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseCssColor = void 0;
+exports.parseCssColor = exports.cssColorNames = void 0;
 // http://www.w3.org/TR/css3-color/
-const cssColorNames = {
+exports.cssColorNames = {
     transparent: [0, 0, 0, 0],
     aliceblue: [240, 248, 255, 1],
     antiquewhite: [250, 235, 215, 1],
@@ -221,8 +221,8 @@ const parseFunction = (fn) => {
 const parseCssColor = (input) => {
     if (input.type === 'word') {
         const value = input.value.toLowerCase();
-        if (value in cssColorNames)
-            return [...cssColorNames[value]];
+        if (value in exports.cssColorNames)
+            return [...exports.cssColorNames[value]];
         // #abc and #abc123 syntax.
         if (value.startsWith('#')) {
             if (value.length === 4) {
