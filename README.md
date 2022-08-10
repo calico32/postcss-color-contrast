@@ -32,7 +32,37 @@ I'll call the first color the "background", the list of colors the "foreground" 
 - AAA-large is the same as `4.5`.
 - AAA is the same as `7`.
 
+## Usage
 
+Not on npm yet.
+
+```sh
+npm install --save-dev postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.0
+
+yarn add -D postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.0
+```
+
+In your `postcss.config.js` file:
+
+```js
+module.exports = {
+  plugins: [
+    require('postcss-color-contrast'),
+  ],
+};
+```
+
+Or programmatically:
+
+```js
+const postcss = require('postcss')
+
+postcss([
+  // ... other plugins here
+  require('postcss-color-contrast'),
+  // ... maybe more plugins here
+]).process(css)
+```
 
 ## Examples
 
