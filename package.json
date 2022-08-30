@@ -11,15 +11,19 @@
   },
   "main": "./dist/cjs/cjs.js",
   "exports": {
-    "import": {
-      "default": "./dist/esm/esm.js",
-      "types": "./dist/esm/esm.d.ts",
-      "*": "./dist/esm/*"
+    ".": {
+      "import": {
+        "types": "./dist/esm/postcss-color-contrast.d.ts",
+        "default": "./dist/esm/postcss-color-contrast.js"
+      },
+      "require": {
+        "types": "./dist/cjs/postcss-color-contrast.d.ts",
+        "default": "./dist/cjs/postcss-color-contrast.js"
+      }
     },
-    "require": {
-      "default": "./dist/cjs/cjs.js",
-      "types": "./dist/cjs/cjs.d.ts",
-      "*": "./dist/cjs/*"
+    "./*": {
+      "import": "./dist/esm/*",
+      "require": "./dist/cjs/*"
     }
   },
   "types": "./dist/esm/esm.d.ts",
