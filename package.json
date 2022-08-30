@@ -23,8 +23,8 @@
   "scripts": {
     "tsc": "tsc --esModuleInterop --moduleResolution node --lib esnext --sourceMap --declaration --strict",
     "clean": "rm -r ./dist || :",
-    "cjs": "yarn tsc --target es6 --module commonjs --outDir dist/cjs src/postcss-color-contrast.cjs.ts",
-    "esm": "yarn tsc --target es2020 --module es2020 --outDir dist/esm src/postcss-color-contrast.ts",
+    "cjs": "yarn tsc --target es6 --module commonjs --outDir dist/cjs src/postcss-color-contrast.cjs.ts src/js.cjs.ts",
+    "esm": "yarn tsc --target es2020 --module es2020 --outDir dist/esm src/postcss-color-contrast.ts src/js.ts",
     "build": "yarn clean && yarn cjs & yarn esm &",
     "prepublishOnly": "yarn build"
   },
@@ -37,6 +37,10 @@
     ".": {
       "import": "./dist/esm/postcss-color-contrast.js",
       "require": "./dist/cjs/postcss-color-contrast.cjs.js"
+    },
+    "./js": {
+      "import": "./dist/esm/js.js",
+      "require": "./dist/cjs/js.cjs.js"
     },
     "./color": {
       "import": "./dist/esm/color.js",
