@@ -1,7 +1,7 @@
 {
   "name": "postcss-color-contrast",
   "packageManager": "yarn@3.2.2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "tsc": "tsc --esModuleInterop --moduleResolution node --lib esnext --sourceMap --declaration --strict",
     "clean": "rm -r ./dist || :",
@@ -10,6 +10,9 @@
     "build": "npm run clean && npm run cjs && npm run esm"
   },
   "main": "./dist/cjs/cjs.js",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/esm/postcss-color-contrast.js",

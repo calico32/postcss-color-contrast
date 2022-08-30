@@ -1,5 +1,10 @@
 # postcss-color-contrast
 
+<p>
+  <img src="https://img.shields.io/npm/v/postcss-color-contrast">
+  <img src="https://img.shields.io/bundlephobia/min/postcss-color-contrast">
+</p>
+
 This very WIP PostCSS plugin implements a polyfill for the `color-contrast()` function, part of the extremely new [CSS Color Module Level 6](https://drafts.csswg.org/css-color-6) spec.
 
 Because the color is computed at compile-time, this plugin only supports literal colors (i.e. hex, `rgb()`, `hsl()`) and does not support `var()` or `calc()` expressions, `currentColor`, etc., and therefore must be placed near the end of the PostCSS chain.
@@ -34,12 +39,9 @@ I'll call the first color the "background", the list of colors the "foreground" 
 
 ## Usage
 
-Not on npm yet.
-
 ```sh
-npm install --save-dev postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.3
-
-yarn add -D postcss-color-contrast@wiisportsresort/postcss-color-contrast#v1.0.3
+npm install --save-dev postcss-color-contrast
+yarn add -D postcss-color-contrast
 ```
 
 In your `postcss.config.js` file:
