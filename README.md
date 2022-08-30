@@ -1,8 +1,10 @@
 # postcss-color-contrast
 
 <p>
-  <img src="https://img.shields.io/npm/v/postcss-color-contrast">
-  <img src="https://img.shields.io/bundlephobia/min/postcss-color-contrast">
+  <a href="https://www.npmjs.com/package/postcss-color-contrast">
+    <img src="https://img.shields.io/npm/v/postcss-color-contrast">
+    <img src="https://img.shields.io/bundlephobia/min/postcss-color-contrast">
+  </a>
 </p>
 
 This very WIP PostCSS plugin implements a polyfill for the `color-contrast()` function, part of the extremely new [CSS Color Module Level 6](https://drafts.csswg.org/css-color-6) spec.
