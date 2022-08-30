@@ -4,4 +4,4 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const postcss_color_contrast_1 = __importDefault(require("./postcss-color-contrast"));
 module.exports = postcss_color_contrast_1.default;
-//# sourceMappingURL=cjs.js.map
+//# sourceMappingURL=postcss-color-contrast.cjs.js.map
