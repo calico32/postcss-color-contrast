@@ -1,7 +1,7 @@
 {
   "name": "postcss-color-contrast",
   "packageManager": "yarn@3.2.2",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "description": "PostCSS `color-contrast()` polyfill",
   "repository": {
