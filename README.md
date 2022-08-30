@@ -68,6 +68,30 @@ postcss([
 ]).process(css)
 ```
 
+Additionally, use the `colorContrast()` function from JavaScript:
+
+```js
+import colorContrast from 'postcss-color-contrast/js'
+const colorContrast = require('postcss-color-contrast/js')
+// -> colorContrast(backgroundColor, foregroundColors, targetRatio, outputFormat)
+
+// provide colors in any valid CSS color format, or a [r, g, b] array
+colorContrast('#0f172a', ['#e5e5e5', '#171717']) // -> '#e5e5e5'
+colorContrast('rgb(194, 65, 12)', ['hsl(0, 0%, 90%)', [23, 23, 23]], 'aa') // -> '#ffffff'
+
+// provide an output format (defaults to 'hex')
+const bg = '#6ee7b7'
+const fg = ['#ecfdf5', '#d1fae5', '#a7f3d0', '#6ee7b7', '#34d399', '#10b981', '#059669', '#047857', '#065f46', '#064e3b']
+const target = 'aa'
+colorContrast(bg, fg, target)   // -> '#065f46'
+colorContrast(..., 'hex')       // -> '#065f46'
+colorContrast(..., 'rgb')       // -> 'rgb(6, 95, 70)'
+colorContrast(..., 'rgb-array') // -> [6, 95, 70]
+colorContrast(..., 'hsl')       // -> 'hsl(163, 88%, 20%)' (rounded)
+colorContrast(..., 'hsl-array') // -> [163.14606741573033, 0.8811881188118811, 0.19803921568627453] (not rounded)
+```
+
+
 ## Examples
 
 *Arguments to `color-contrast()` wrapped onto multiple lines for clarity.*
