@@ -1,7 +1,7 @@
 {
   "name": "postcss-color-contrast",
   "packageManager": "yarn@3.2.2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "tsc": "tsc --esModuleInterop --moduleResolution node --lib esnext --sourceMap --declaration --strict",
     "clean": "rm -r ./dist || :",
