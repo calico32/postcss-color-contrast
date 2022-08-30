@@ -1,6 +1,6 @@
 import valueParser, { DivNode, Node, SpaceNode } from 'postcss-value-parser'
 import { SRGB } from './color'
-import { AA, AAA, AAA_LARGE, AA_LARGE, colorContrast, ContrastRatio } from './contrast'
+import { colorContrast, contrastKeywords, ContrastRatio } from './contrast'
 import { cssColorNames, parseCssColor } from './css-color'
 
 // @ts-ignore - peer dependency missing types
@@ -16,13 +16,6 @@ type PluginCreator<T> = any extends PluginCreatorFull<T>
 color-contrast() = color-contrast( <color> vs <color>#{2,}  [ to [<number> | AA | AA-large | AAA | AAA-large]]? )
 CSS Color Module Level 6: https://drafts.csswg.org/css-color-6/
 */
-
-const contrastKeywords: Record<string, ContrastRatio> = {
-  aa: AA,
-  'aa-large': AA_LARGE,
-  aaa: AAA,
-  'aaa-large': AAA_LARGE,
-}
 
 class ParseFail extends Error {
   constructor(public message: string) {

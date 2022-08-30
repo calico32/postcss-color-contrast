@@ -1,16 +1,10 @@
 import valueParser from 'postcss-value-parser';
-import { AA, AAA, AAA_LARGE, AA_LARGE, colorContrast } from './contrast';
+import { colorContrast, contrastKeywords } from './contrast';
 import { cssColorNames, parseCssColor } from './css-color';
 /*
 color-contrast() = color-contrast( <color> vs <color>#{2,}  [ to [<number> | AA | AA-large | AAA | AAA-large]]? )
 CSS Color Module Level 6: https://drafts.csswg.org/css-color-6/
 */
-const contrastKeywords = {
-    aa: AA,
-    'aa-large': AA_LARGE,
-    aaa: AAA,
-    'aaa-large': AAA_LARGE,
-};
 class ParseFail extends Error {
     constructor(message) {
         super('Failed to process color-contrast()');

@@ -1,6 +1,6 @@
 import valueParser from 'postcss-value-parser';
 import { normalizeSRGB } from './color';
-import { colorContrast as cssColorContrast } from './contrast';
+import { colorContrast as cssColorContrast, contrastKeywords } from './contrast';
 import { parseCssColor } from './css-color';
 function colorContrast(bg, fg, targetRatio, outputFormat = 'hex') {
     const processColor = (color) => {
@@ -25,7 +25,19 @@ function colorContrast(bg, fg, targetRatio, outputFormat = 'hex') {
     };
     const bgColor = processColor(bg);
     const fgColors = fg.map(processColor);
-    const color = cssColorContrast(bgColor, fgColors, targetRatio);
+    let targetRatioNumber;
+    if (targetRatio) {
+        if (typeof targetRatio === 'string') {
+            targetRatioNumber = contrastKeywords[targetRatio];
+            if (!targetRatioNumber) {
+                throw new Error(`invalid contrast ratio: ${targetRatio}`);
+            }
+        }
+        else {
+            targetRatioNumber = targetRatio;
+        }
+    }
+    const color = cssColorContrast(bgColor, fgColors, targetRatioNumber);
     switch (outputFormat) {
         case 'hex':
             return `#${color.map((c) => Math.round(c).toString(16).padStart(2, '0')).join('')}`;

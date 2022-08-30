@@ -30,7 +30,19 @@ function colorContrast(bg, fg, targetRatio, outputFormat = 'hex') {
     };
     const bgColor = processColor(bg);
     const fgColors = fg.map(processColor);
-    const color = (0, contrast_1.colorContrast)(bgColor, fgColors, targetRatio);
+    let targetRatioNumber;
+    if (targetRatio) {
+        if (typeof targetRatio === 'string') {
+            targetRatioNumber = contrast_1.contrastKeywords[targetRatio];
+            if (!targetRatioNumber) {
+                throw new Error(`invalid contrast ratio: ${targetRatio}`);
+            }
+        }
+        else {
+            targetRatioNumber = targetRatio;
+        }
+    }
+    const color = (0, contrast_1.colorContrast)(bgColor, fgColors, targetRatioNumber);
     switch (outputFormat) {
         case 'hex':
             return `#${color.map((c) => Math.round(c).toString(16).padStart(2, '0')).join('')}`;

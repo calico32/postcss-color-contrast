@@ -28,8 +28,8 @@
     "build": "yarn clean && yarn cjs & yarn esm &",
     "prepublishOnly": "yarn build"
   },
-  "main": "./dist/cjs/cjs.js",
-  "types": "./dist/cjs/cjs.d.ts",
+  "main": "./dist/cjs/postcss-color-contrast.cjs.js",
+  "types": "./dist/cjs/postcss-color-contrast.cjs.js",
   "files": [
     "dist"
   ],

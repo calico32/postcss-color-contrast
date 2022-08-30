@@ -10,12 +10,6 @@ const css_color_1 = require("./css-color");
 color-contrast() = color-contrast( <color> vs <color>#{2,}  [ to [<number> | AA | AA-large | AAA | AAA-large]]? )
 CSS Color Module Level 6: https://drafts.csswg.org/css-color-6/
 */
-const contrastKeywords = {
-    aa: contrast_1.AA,
-    'aa-large': contrast_1.AA_LARGE,
-    aaa: contrast_1.AAA,
-    'aaa-large': contrast_1.AAA_LARGE,
-};
 class ParseFail extends Error {
     constructor(message) {
         super('Failed to process color-contrast()');
@@ -140,8 +134,8 @@ const postcssColorContrast = (opts = {}) => ({
                             expectSpace(args.shift());
                             const target = expectNotNull(args.shift());
                             expectType(target, 'word');
-                            if (target.value.toLowerCase() in contrastKeywords) {
-                                targetRatio = contrastKeywords[target.value.toLowerCase()];
+                            if (target.value.toLowerCase() in contrast_1.contrastKeywords) {
+                                targetRatio = contrast_1.contrastKeywords[target.value.toLowerCase()];
                             }
                             else {
                                 try {

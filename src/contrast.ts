@@ -9,6 +9,13 @@ export const AAA_LARGE: ContrastRatio = 4.5
 export const AA: ContrastRatio = 4.5
 export const AA_LARGE: ContrastRatio = 3
 
+export const contrastKeywords: Record<string, ContrastRatio> = {
+  aa: AA,
+  'aa-large': AA_LARGE,
+  aaa: AAA,
+  'aaa-large': AAA_LARGE,
+}
+
 /**
  * The WCAG 2.1 contrast is calculated by the formula *contrast = (Yl + 0.05) / (Yd + 0.05)* where *Yd* is the luminance of the darker color in the pair and *Yl* is the luminance of the lighter color. The factor 0.05 represents the luminance contribution of the viewing flare.
  */

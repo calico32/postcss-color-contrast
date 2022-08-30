@@ -1,26 +1,27 @@
 import valueParser from 'postcss-value-parser'
 import { normalizeSRGB, SRGB, SRGBA } from './color'
-import { colorContrast as cssColorContrast, ContrastRatio } from './contrast'
+import { colorContrast as cssColorContrast, contrastKeywords } from './contrast'
 import { parseCssColor } from './css-color'
 
 type Color = SRGB | SRGBA | string
+type ContrastRatio = number | 'aa' | 'aa-large' | 'aaa' | 'aaa-large'
 
 function colorContrast(
   bg: Color,
   fg: Color[],
-  targetRatio?: number,
+  targetRatio?: ContrastRatio,
   outputFormat?: 'hex' | 'rgb' | 'hsl'
 ): string
 function colorContrast(
   bg: Color,
   fg: Color[],
-  targetRatio?: number,
+  targetRatio?: ContrastRatio,
   outputFormat?: 'rgb-array'
 ): SRGB
 function colorContrast(
   bg: Color,
   fg: Color[],
-  targetRatio?: number,
+  targetRatio?: ContrastRatio,
   outputFormat?: 'hsl-array'
 ): [h: number, s: number, l: number]
 function colorContrast(
@@ -55,7 +56,19 @@ function colorContrast(
   const bgColor = processColor(bg)
   const fgColors = fg.map(processColor)
 
-  const color = cssColorContrast(bgColor, fgColors, targetRatio)
+  let targetRatioNumber
+  if (targetRatio) {
+    if (typeof targetRatio === 'string') {
+      targetRatioNumber = contrastKeywords[targetRatio]
+      if (!targetRatioNumber) {
+        throw new Error(`invalid contrast ratio: ${targetRatio}`)
+      }
+    } else {
+      targetRatioNumber = targetRatio
+    }
+  }
+
+  const color = cssColorContrast(bgColor, fgColors, targetRatioNumber)
 
   switch (outputFormat) {
     case 'hex':

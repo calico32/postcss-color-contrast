@@ -4,6 +4,12 @@ export const AAA = 7;
 export const AAA_LARGE = 4.5;
 export const AA = 4.5;
 export const AA_LARGE = 3;
+export const contrastKeywords = {
+    aa: AA,
+    'aa-large': AA_LARGE,
+    aaa: AAA,
+    'aaa-large': AAA_LARGE,
+};
 /**
  * The WCAG 2.1 contrast is calculated by the formula *contrast = (Yl + 0.05) / (Yd + 0.05)* where *Yd* is the luminance of the darker color in the pair and *Yl* is the luminance of the lighter color. The factor 0.05 represents the luminance contribution of the viewing flare.
  */

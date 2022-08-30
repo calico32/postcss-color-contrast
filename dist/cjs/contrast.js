@@ -1,12 +1,18 @@
 "use strict";
 // import { Color_XYZ } from './color'
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.colorContrast = exports.contrastRatioOf = exports.AA_LARGE = exports.AA = exports.AAA_LARGE = exports.AAA = void 0;
+exports.colorContrast = exports.contrastRatioOf = exports.contrastKeywords = exports.AA_LARGE = exports.AA = exports.AAA_LARGE = exports.AAA = void 0;
 const color_1 = require("./color");
 exports.AAA = 7;
 exports.AAA_LARGE = 4.5;
 exports.AA = 4.5;
 exports.AA_LARGE = 3;
+exports.contrastKeywords = {
+    aa: exports.AA,
+    'aa-large': exports.AA_LARGE,
+    aaa: exports.AAA,
+    'aaa-large': exports.AAA_LARGE,
+};
 /**
  * The WCAG 2.1 contrast is calculated by the formula *contrast = (Yl + 0.05) / (Yd + 0.05)* where *Yd* is the luminance of the darker color in the pair and *Yl* is the luminance of the lighter color. The factor 0.05 represents the luminance contribution of the viewing flare.
  */
