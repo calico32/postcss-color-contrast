@@ -2,6 +2,23 @@
   "name": "postcss-color-contrast",
   "packageManager": "yarn@3.2.2",
   "version": "1.0.4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wiisportsresort/postcss-color-contrast.git"
+  },
+  "keywords": [
+    "postcss",
+    "color",
+    "contrast",
+    "polyfill",
+    "css"
+  ],
+  "author": {
+    "name": "wiisportsresort",
+    "email": "devdoge1@gmail.com",
+    "url": "https://github.com/wiisportsresort"
+  },
   "scripts": {
     "tsc": "tsc --esModuleInterop --moduleResolution node --lib esnext --sourceMap --declaration --strict",
     "clean": "rm -r ./dist || :",
@@ -10,6 +27,7 @@
     "build": "npm run clean && npm run cjs && npm run esm"
   },
   "main": "./dist/cjs/cjs.js",
+  "types": "./dist/cjs/cjs.d.ts",
   "files": [
     "dist"
   ],
@@ -32,7 +50,6 @@
     },
     "./dist/*": "./dist/*"
   },
-  "types": "./dist/esm/esm.d.ts",
   "dependencies": {
     "postcss-value-parser": "^4.2.0"
   },
