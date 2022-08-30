@@ -7,6 +7,30 @@ const postcss_value_parser_1 = __importDefault(require("postcss-value-parser"));
 const color_1 = require("./color");
 const contrast_1 = require("./contrast");
 const css_color_1 = require("./css-color");
+/**
+ * `colorContrast()` selects the most contrasting color to a given color from a
+ * list.
+ *
+ * From the [CSS Color Module Level
+ * 6](https://drafts.csswg.org/css-color-6/#colorcontrast) spec:
+ *
+ * > This function takes, firstly, a single color (typically a background, but
+ * not necessarily), secondly, a list of two or more colors, and thirdly, an
+ * optional target [luminance
+ * contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+ *
+ * > It returns the first color in the list to meet or exceed the specified
+ * target contrast or, if no target is given, the color in the list with the
+ * greatest contrast.
+ *
+ * @param bg the single color to contrast against
+ * @param fg the list of colors to choose from
+ * @param targetRatio the target contrast ratio, as a number (1-21) or a string
+ * (aa, aa-large, aaa, aaa-large)
+ * @param outputFormat the output format, as a string (hex, rgb-array, rgb,
+ * hsl-array, hsl)
+ * @returns the resulting color (described above), in the specified format
+ */
 function colorContrast(bg, fg, targetRatio, outputFormat = 'hex') {
     const processColor = (color) => {
         let output;
@@ -28,6 +52,9 @@ function colorContrast(bg, fg, targetRatio, outputFormat = 'hex') {
         }
         return [output[0], output[1], output[2]];
     };
+    if (fg.length < 2) {
+        throw new Error('at least two fg colors are required');
+    }
     const bgColor = processColor(bg);
     const fgColors = fg.map(processColor);
     let targetRatioNumber;
