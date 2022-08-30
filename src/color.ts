@@ -6,10 +6,10 @@ import { multiplyMatrices } from './multiplyMatrices'
 
 export const D65 = [0.3127 / 0.329, 1.0, (1.0 - 0.3127 - 0.329) / 0.329]
 
-export type SRGBA = [r: number, g: number, b: number, a: number] & Nominal<'SRGBA'>
-export type SRGB = [r: number, g: number, b: number] & Nominal<'SRGB'>
-export type LinSRGB = [r: number, g: number, b: number] & Nominal<'LinSRGB'>
-export type XYZ = [x: number, y: number, z: number] & Nominal<'XYZ'>
+export type SRGBA = [r: number, g: number, b: number, a: number]
+export type SRGB = [r: number, g: number, b: number]
+export type LinSRGB = [r: number, g: number, b: number]
+export type XYZ = [x: number, y: number, z: number]
 
 export const normalizeSRGB = <T extends number[]>(c: T): T => {
   return c.map((x) => x / 255) as T
